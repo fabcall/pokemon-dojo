@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 
 import BootSplash from 'react-native-bootsplash';
-import {SafeAreaView} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 
 const delay = (timeout: number) =>
   new Promise(resolve => setTimeout(resolve, timeout));
@@ -16,7 +16,9 @@ const App = () => {
     });
   }, []);
 
-  return <SafeAreaView />;
+  return (
+    <NavigationContainer>{/* Rest of your app code */}</NavigationContainer>
+  );
 };
 
 export default App;
