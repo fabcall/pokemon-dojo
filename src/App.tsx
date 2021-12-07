@@ -1,9 +1,12 @@
+import '@react-navigation/native';
+
 import React, {useEffect} from 'react';
 
 import BootSplash from 'react-native-bootsplash';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import RootNavigator from './routes/RootNavigator';
+import {ThemeProvider as StyledThemeProvider} from 'styled-components';
 import {delay} from './utilities/delay';
+import theme from './styles/theme';
 
 const App = () => {
   useEffect(() => {
@@ -16,9 +19,9 @@ const App = () => {
   }, []);
 
   return (
-    <GestureHandlerRootView>
+    <StyledThemeProvider theme={theme}>
       <RootNavigator />
-    </GestureHandlerRootView>
+    </StyledThemeProvider>
   );
 };
 
