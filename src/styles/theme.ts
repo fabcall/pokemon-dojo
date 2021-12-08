@@ -1,9 +1,11 @@
-/* theme.js */
+import * as palette from './palette';
+
 import {DefaultTheme} from '@react-navigation/native';
 import {fontFamilies} from './fontFamilies';
 import {fontSizes} from './fontSizes';
 import {fontWeights} from './fontWeights';
 import {lineHeights} from './lineHeights';
+import {space} from './space';
 
 export default {
   ...DefaultTheme,
@@ -14,7 +16,6 @@ export default {
     muted: '#999',
   },
   dark: DefaultTheme.dark,
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontFamilies,
   fontSizes,
   fontWeights,
@@ -31,4 +32,6 @@ export default {
       fontWeight: fontWeights.body,
     },
   },
+  palette,
+  space,
 } as const;

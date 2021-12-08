@@ -1,10 +1,11 @@
 import {Container, Type, TypeText} from './styles';
 
+import {Pokemon} from '../../types/Pokemon';
 import React from 'react';
 import {ViewProps} from 'react-native';
 
 type PokemonTypesProps = ViewProps & {
-  pokemon: any;
+  pokemon: Pokemon;
   size?: 'regular' | 'small';
 };
 
@@ -15,8 +16,8 @@ const PokemonTypes = ({
 }: PokemonTypesProps) => {
   return (
     <Container {...props}>
-      {pokemon.types.map(({type}: any) => (
-        <Type size={size} key={type.url}>
+      {pokemon.types.map(type => (
+        <Type size={size} key={type.name}>
           <TypeText size={size}>{type.name}</TypeText>
         </Type>
       ))}

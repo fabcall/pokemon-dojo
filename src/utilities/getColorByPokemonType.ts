@@ -19,5 +19,5 @@ const colours = {
   water: '#539AE2',
 };
 
-export default (type: string) =>
+export const getColorByPokemonType = (type: string) =>
   colours[type as keyof typeof colours] || '#777';

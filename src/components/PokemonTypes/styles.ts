@@ -37,4 +37,5 @@ export const TypeText = styled(Text).attrs({
       font-size: 8px;
       line-height: 10px;
     `}
+  text-transform: capitalize;
 `;
