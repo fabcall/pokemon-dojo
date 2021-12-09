@@ -3,6 +3,7 @@ import React, {useCallback, useMemo, useState} from 'react';
 
 import {GetPokemonsResultItem} from '../../hooks/useGetPokemons/useGetPokemons';
 import {ListRenderItem} from 'react-native';
+import {LoadingView} from '../../components';
 import {NetworkStatus} from '@apollo/client';
 import PokemonCard from './PokemonCard';
 import {StackScreenProps} from '@react-navigation/stack';
@@ -12,7 +13,7 @@ type Props = StackScreenProps<ReactNavigation.RootParamList, 'Home'>;
 
 const Home = ({}: Props) => {
   const [limit] = useState(10);
-  const {data, fetchMore, networkStatus} = useGetPokemons({
+  const {called, data, fetchMore, loading, networkStatus} = useGetPokemons({
     variables: {
       offset: 0,
       limit,
@@ -50,6 +51,10 @@ const Home = ({}: Props) => {
       });
     }
   };
+
+  if (!called || loading) {
+    return <LoadingView />;
+  }
 
   return (
     <Container>
